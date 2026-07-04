@@ -1,0 +1,50 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #020617;
+    transition: background 1.8s ease-in-out, color 1.2s ease-in-out;
+}
+
+.font-cursive {
+    font-family: 'Great Vibes', cursive;
+}
+
+.bg-phase-dark {
+    background: #020617;
+}
+
+.bg-phase-sunrise {
+    background: linear-gradient(180deg, #020617 0%, #1e1b4b 50%, #581c87 80%, #fef08a 100%) !important;
+}
+
+.bg-phase-blossom {
+    background: linear-gradient(180deg, #fef08a 0%, #fce7f3 50%, #fae8ff 100%) !important;
+}
+
+.bg-phase-final {
+    background: #ffffff !important;
+}
+
+.dynamic-scene {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#particle-canvas {
+    filter: blur(1px);
+    will-change: transform;
+}
+
+.heart-pulsing {
+    animation: normalHeart 2.5s infinite ease-in-out;
+}
+
+@keyframes normalHeart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+}
