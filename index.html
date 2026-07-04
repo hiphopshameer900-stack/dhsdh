@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Love Worth Restarting</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-950 font-sans text-slate-100 overflow-x-hidden selection:bg-rose-500/30">
+
+    <button id="audio-toggle" class="fixed top-6 right-6 z-50 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition cursor-pointer text-xs tracking-wider uppercase font-medium">
+        🎵 Play Music
+    </button>
+    <audio id="bg-music" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <main class="relative z-10 w-full">
+
+        <section id="scene-1" class="h-screen w-full flex flex-col justify-center items-center p-6 text-center dynamic-scene">
+            <div class="max-w-2xl space-y-4">
+                <p class="scene1-text opacity-0 text-xl md:text-2xl tracking-wide font-light text-slate-300">"Some distances are not measured in kilometers..."</p>
+                <p class="scene1-text opacity-0 text-xl md:text-2xl tracking-wide font-light text-slate-300">"They're measured in silence."</p>
+                
+                <div class="mt-12 relative w-28 h-28 mx-auto animate-pulse">
+                    <svg class="w-full h-full fill-rose-900/40 stroke-rose-500 stroke-[0.5]" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div id="crack-line" class="w-0.5 h-14 bg-slate-950 rotate-12 origin-top scale-y-0 transition-transform duration-1000"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene-2" class="h-screen w-full flex flex-col justify-center items-center p-6 text-center dynamic-scene opacity-0">
+            <div class="max-w-3xl space-y-6 relative">
+                <p class="text-xl md:text-2xl tracking-wide font-light text-slate-200">I finally understood...</p>
+                <p class="text-xl md:text-2xl tracking-wide font-light text-slate-200">Love isn't just saying "I love you."</p>
+                <p class="text-2xl md:text-3xl font-medium text-amber-200 drop-shadow-[0_4px_15px_rgba(253,244,180,0.3)]">It's making the other person feel safe enough to believe it.</p>
+                
+                <div class="absolute -top-12 -left-12 text-3xl animate-bounce">🌸</div>
+                <div class="absolute -bottom-12 -right-12 text-3xl animate-bounce delay-500">🌸</div>
+            </div>
+        </section>
+
+        <section id="scene-3" class="min-h-screen w-full flex flex-col justify-center items-center p-6 dynamic-scene">
+            <h2 class="text-2xl tracking-widest text-slate-400 mb-12 uppercase text-center font-light">Instead of saying "I changed", show it.</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
+                <div class="promise-card p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md opacity-0 transform translate-y-8">
+                    <span class="text-amber-300 block mb-2 text-xl">✨</span> <p class="text-slate-200">I learned to listen.</p>
+                </div>
+                <div class="promise-card p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md opacity-0 transform translate-y-8">
+                    <span class="text-amber-300 block mb-2 text-xl">✨</span> <p class="text-slate-200">I learned patience.</p>
+                </div>
+                <div class="promise-card p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md opacity-0 transform translate-y-8">
+                    <span class="text-amber-300 block mb-2 text-xl">✨</span> <p class="text-slate-200">I learned your silence also has feelings.</p>
+                </div>
+                <div class="promise-card p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md opacity-0 transform translate-y-8">
+                    <span class="text-amber-300 block mb-2 text-xl">✨</span> <p class="text-slate-200">I learned that trust is earned.</p>
+                </div>
+                <div class="promise-card p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md opacity-0 transform translate-y-8 md:col-span-2 lg:col-span-1">
+                    <span class="text-amber-300 block mb-2 text-xl">✨</span> <p class="text-slate-200">I learned that love grows through actions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene-4" class="min-h-screen w-full flex flex-col justify-center items-center p-6 relative dynamic-scene">
+            <div class="max-w-2xl mb-16 text-center">
+                <p class="text-xl tracking-wide text-slate-300 font-light">"These weren't just memories."</p>
+                <p class="text-xl tracking-wide text-slate-300 font-light mt-2">"They became the reason I never wanted to give up."</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-12 max-w-4xl w-full relative">
+                <div class="polaroid-pic bg-white p-4 pb-12 shadow-[0_20px_50px_rgba(0,0,0,0.4)] rounded text-neutral-800 -rotate-6 hover:rotate-0 hover:scale-110 transition duration-500 cursor-pointer w-56 border border-neutral-200/60 opacity-0">
+                    <div class="w-full h-48 bg-rose-50 mb-4 flex items-center justify-center text-xs text-rose-300 rounded-sm font-serif">🌸 Shared Smile</div>
+                    <p class="font-serif text-center italic text-sm text-neutral-600">Laughter shared.</p>
+                </div>
+                <div class="polaroid-pic bg-white p-4 pb-12 shadow-[0_20px_50px_rgba(0,0,0,0.4)] rounded text-neutral-800 rotate-3 hover:rotate-0 hover:scale-110 transition duration-500 cursor-pointer w-56 mt-8 border border-neutral-200/60 opacity-0">
+                    <div class="w-full h-48 bg-rose-50 mb-4 flex items-center justify-center text-xs text-rose-300 rounded-sm font-serif">✨ Quiet Space</div>
+                    <p class="font-serif text-center italic text-sm text-neutral-600">Quiet comfort.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene-5" class="h-screen w-full flex flex-col justify-center items-center p-6 text-center dynamic-scene">
+            <div class="max-w-2xl text-2xl md:text-3xl font-light tracking-wide space-y-6 min-h-[200px]" id="typewriter-box"></div>
+        </section>
+
+        <section id="scene-6" class="min-h-screen w-full flex flex-col justify-center items-center p-6 dynamic-scene">
+            <div class="max-w-xl w-full flex flex-col items-center">
+                <div class="w-full flex flex-col gap-3 mb-12" id="bridge-planks-wrapper">
+                    <div class="bridge-plank bg-amber-900/40 border border-amber-700/50 p-4 text-center rounded backdrop-blur-sm opacity-0 transform -translate-x-12 text-amber-100 shadow-md">Patience</div>
+                    <div class="bridge-plank bg-amber-900/40 border border-amber-700/50 p-4 text-center rounded backdrop-blur-sm opacity-0 transform -translate-x-12 text-amber-100 shadow-md">Respect</div>
+                    <div class="bridge-plank bg-amber-900/40 border border-amber-700/50 p-4 text-center rounded backdrop-blur-sm opacity-0 transform -translate-x-12 text-amber-100 shadow-md">Honesty</div>
+                    <div class="bridge-plank bg-amber-900/40 border border-amber-700/50 p-4 text-center rounded backdrop-blur-sm opacity-0 transform -translate-x-12 text-amber-100 shadow-md">Consistency</div>
+                    <div class="bridge-plank bg-amber-900/40 border border-amber-700/50 p-4 text-center rounded backdrop-blur-sm opacity-0 transform -translate-x-12 text-amber-100 shadow-md">Understanding</div>
+                    <div class="bridge-plank bg-amber-900/40 border border-amber-700/50 p-4 text-center rounded backdrop-blur-sm opacity-0 transform -translate-x-12 text-amber-100 shadow-md">Communication</div>
+                </div>
+                <div class="text-center space-y-4">
+                    <p class="text-lg tracking-wide text-slate-400 font-light">"I'll never force you to cross."</p>
+                    <p class="text-xl font-medium text-amber-200">"I'll simply keep making this bridge stronger."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene-7" class="min-h-screen w-full flex justify-center items-center p-6 dynamic-scene">
+            <div id="letter-envelope" class="w-full max-w-2xl bg-stone-100 text-stone-900 p-8 md:p-12 shadow-[0_30px_70px_rgba(0,0,0,0.5)] border border-stone-200 rounded-lg transform scale-90 opacity-0 transition-all duration-1000 relative">
+                <h1 class="font-cursive text-4xl text-rose-800 mb-6 border-b border-stone-300 pb-2">My Dear Suchitra,</h1>
+                <div class="space-y-4 text-base leading-relaxed font-light text-stone-800">
+                    <p>I know things aren't the way they used to be.</p>
+                    <p>We laugh sometimes... We talk... But I can still feel the distance between us. I understand why. Trust doesn't disappear in one day, and it doesn't return in one day either.</p>
+                    <p>I don't expect you to suddenly believe every promise I make. Instead, I want my actions to speak louder than these words. I want to become the reason your heart feels safe again. Not because you have to... But because one day, it simply feels right.</p>
+                    <p>I miss the way we loved each other. I miss the comfort. I miss making you smile without hesitation. More than anything... I miss seeing you love without fear.</p>
+                    <p>If loving me still feels risky, I won't ask you to ignore that feeling. I'll work every day to make it feel less like a risk and more like coming home.</p>
+                    <p>I don't want a perfect relationship. I want an honest one. One where we grow together, laugh together, cry together, heal together, and never stop choosing each other.</p>
+                    <p>If you'll allow me, I'd love to rebuild what we had—not by pretending nothing happened, but by creating something even stronger.</p>
+                    <p class="pt-4 font-medium text-stone-900">No pressure. No deadline.</p>
+                    <p>Just one promise: I'll keep proving my love through my actions. Until one day... your heart smiles the way it used to. ❤️</p>
+                    <p class="pt-6 font-cursive text-3xl text-rose-800 text-right">Will you let us write a new beginning... together?</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene-final" class="h-screen w-full flex flex-col justify-center items-center p-6 text-center relative dynamic-scene">
+            <div class="max-w-xl space-y-8 flex flex-col items-center z-10">
+                <div id="final-heart-node" class="w-16 h-16 fill-rose-600 opacity-0 transition-opacity duration-1000">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <div id="final-script-target" class="text-xl tracking-wide min-h-[60px] text-slate-800 font-light px-4"></div>
+                
+                <button id="cta-btn" class="hidden px-8 py-4 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-full font-medium tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                    🌹 Start Our New Chapter
+                </button>
+
+                <div id="hearts-interact" class="hidden relative w-72 h-24 items-center justify-between mt-8 px-4">
+                    <div class="w-12 h-12 fill-rose-500 filter drop-shadow-[0_0_8px_rgba(244,63,94,0.4)]"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                    <div class="w-12 h-12 fill-purple-500 filter drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
